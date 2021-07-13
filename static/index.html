@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images - Content browser and rating - Red Bull</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Images - Red Bull - Content Browser</h1>
+    <header>
+        <div id="navbar">
+            <a href="/"> <img src="./assets/logo.png" alt="Red Bull Logo" title="Back to homepage" width="150"
+                    height="auto" /></a>
+            <div id="searchDiv">
+                <form id="search">
+                    <input id="keyword" type="text" placeholder="Search" />
+                    <input id="searchIcon" type="image" src="./assets/ic_search.svg" />
+                </form>
+            </div>
+        </div>
+
+
+    </header>
+    <main>
+        <!-- <button onclick="getImages()">
+            Bilder
+        </button>
+        <button onclick="getVideos()">
+            Videos
+        </button> -->
+        <div class="mediacontent">
+            <section id="filter">
+                <div class="filterDiv selected">Images</div>
+                <a href="/videos.html">
+                    <div class="filterDiv">Videos</div> </a>
+                  
+            </section>
+
+            <section id="topImages" class="imagesSection">
+                <h2>TOP 10 IMAGES</h2>
+                <div class="topContent"></div>
+            </section>
+            <section id="moreImages" class="imagesSection">
+                <h2>MORE IMAGES</h2>
+                <div class="moreContent"></div>
+            </section>
+
+        </div>
+
+        <div class="popup">
+            <div id="innerPopup">
+
+                <!-- <div class="flexSpaceBetween marginBottom">
+                    <img id="previous" src="./assets/left.svg" class="arrows" title="Previous">
+                    <div class="popupTitle"></div>
+                    <img id="next" src="./assets/right.svg" class="arrows" title="Next">
+                </div>
+                <img class="popupImageCard" alt="" src="">
+                <div class="flexRow">
+                    <div id="contentBox">
+                        <div class="popupSource"></div>
+                        <div class="popupTopic"></div>
+                        <div class="popupDescription"></div>
+                    </div>
+                    <div id="ratingBox">
+                        <div class="rating" title="Please rate this image">
+                            Rating
+                        </div>
+                        <input type="range" min="1" class="slider-pic" id="sliderRating" max="10" value="1">
+                        <div class="ratingAmount" title="Total ratings">
+                            No ratings yet. Be the first to make one!
+                        </div>
+                        <input type="button" value="Submit" id="submitRating">
+                    </div>
+
+                </div> -->
+
+            </div>
+        </div>
+        </div>
+
+    </main>
+    <footer></footer>
+    <script src="./js/images.js"></script>
+    <script src="./js/search.js"></script>
+
+</body>
+
+</html>
