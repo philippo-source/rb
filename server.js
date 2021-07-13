@@ -17,10 +17,6 @@ const PORT = process.env.PORT || 8080;
 //initialite express app
 const app = express();
 
-// app.use(cors({
-//     credentials: true,
-//     origin: '*' //http://127.0.0.1:8080' '*'
-//   }));
 
 // Body parser
 app.use(express.json());
