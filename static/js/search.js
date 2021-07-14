@@ -320,10 +320,12 @@ function showOnlyVideos(e) {
                 rating = "not rated yet"
             }
 
+            //resize images before load
+            let img = i.previewUrl.replace("/im/", "/im:i:w_350/");
 
             document.querySelector(".searchContent").innerHTML += `<div class="card" onclick="showPopup(this)" >
             <div class="mediaContainer" onmouseenter="fetchVideoPreview(this)" onmouseleave="stopPreviewVideo(this)">
-                <img class="videoCard" alt="" src="${i.previewUrl}">
+                <img class="videoCard" alt="" src="${img}">
             <video class="videoCard" alt="" src="" style="display:none"></video>
             </div>
             <div class="title">${i.title}</div>
