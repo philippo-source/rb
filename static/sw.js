@@ -4,9 +4,9 @@ const cacheName = 'cache-v1';
 const cacheName2 = 'cache-v2';
 const resourcesToPrecache = [
     '/',
-    'assets/logo3.png',
-    'css/reset.css',
-    'css/styles.css'
+    '/assets/logo3.png',
+    '/css/reset.css',
+    '/css/styles.css'
 ];
 
 self.addEventListener('install', event => {
@@ -60,8 +60,8 @@ self.addEventListener('activate', (event) => {
     );
   });
 
-self.addEventListener('message', (event) => {
-    if (event.data === 'SKIP_WAITING') {
-        self.skipWaiting();
-    }
-});
+// self.addEventListener('message', (event) => {
+//     if (event.data === 'SKIP_WAITING') {
+//         self.skipWaiting();
+//     }
+// });
