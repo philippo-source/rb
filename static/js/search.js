@@ -346,3 +346,9 @@ function showOnlyVideos(e) {
     document.querySelector("#filterImg").classList.remove("selected");
 
 }
+
+//for PWA
+if ('serviceWorker' in navigator) {
+
+    navigator.serviceWorker.register('/sw.js', { scope: '/' });
+}
