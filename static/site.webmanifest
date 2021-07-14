@@ -1,6 +1,6 @@
 {
-    "name": "Red Bull Content Browser",
-    "short_name": "Red Bull Content",
+    "name": "Red Bull Content App",
+    "short_name": "Red Bull App",
     "start_url": "index.html?source=pwa",
     "icons": [
         {
