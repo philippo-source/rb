@@ -404,12 +404,16 @@ color: white;
     }
     .topContent, .searchContent, .moreContent {
         grid-template-areas: "a";
+        justify-content: center;
             }
     #keyword{
                 width: 5rem;
             }
     .filter{
         display: none;
+    }
+    .card{
+        padding-right: 0;
     }
 }
 
