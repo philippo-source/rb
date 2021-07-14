@@ -18,5 +18,4 @@ router.get('/topImages', topImages);
 router.get('/topVideos', topVideos);
 
 
-
 module.exports = router;

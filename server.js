@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
+const dotenv = require('dotenv')
 const connectDB = require('./config/db');
 
 //Load config file
@@ -17,7 +16,7 @@ const PORT = process.env.PORT || 8080;
 //initialite express app
 const app = express();
 
-//
+
 // Body parser
 app.use(express.json());
 

@@ -28,16 +28,12 @@ exports.mediaType = asyncHandler(async (req, res, next) => {
         data: typeResponse
     });
 
-
-
 });
 
 // @desc      Get top images
 // @route     GET /api/media/topImages
 // @access    Public
 exports.topImages = asyncHandler(async (req, res, next) => {
-
-
 
     const images = await Media.find({mediaType: "image", rating:{$exists: true}}).sort({ rating: -1 }).limit(10);
 
@@ -53,8 +49,6 @@ exports.topImages = asyncHandler(async (req, res, next) => {
         success: true,
         data: images
     });
-
-
 
 });
 
@@ -79,8 +73,6 @@ exports.topVideos = asyncHandler(async (req, res, next) => {
         data: videos
     });
 
-
-
 });
 
 
@@ -89,7 +81,6 @@ exports.topVideos = asyncHandler(async (req, res, next) => {
 // @route     POST /api/media/keywords
 // @access    Public
 exports.keywords = asyncHandler(async (req, res, next) => {
-
 
     console.log(req.body.keyword);
 
@@ -122,7 +113,6 @@ exports.keywords = asyncHandler(async (req, res, next) => {
         success: true,
         data: keywordResponse
     });
-
 
 });
 
