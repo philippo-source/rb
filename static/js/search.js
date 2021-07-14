@@ -264,7 +264,7 @@ function filterSearchForImages() {
 }
 
 function showOnlyImages(e) {
-    console.log(e);
+  
     document.querySelector(".searchContent").innerHTML = "";
     if (document.querySelector(".loadDivSearch")) {
         document.querySelector(".loadDivSearch").style.display = "none";
@@ -301,7 +301,7 @@ function showOnlyImages(e) {
 }
 
 function showOnlyVideos(e) {
-    console.log(e);
+    
     document.querySelector(".searchContent").innerHTML = "";
 
     if (document.querySelector(".loadDivSearch")) {

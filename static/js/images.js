@@ -13,7 +13,7 @@ function init() {
     getImages();
     document.querySelector("#search").addEventListener("submit", searchKeyword);
     document.addEventListener("click", checkPopupClose);
- 
+
 
 }
 
@@ -42,6 +42,8 @@ async function getTopImages() {
 
                 for (var i = 0; i < fetchedDataTopImages.length; i++) {
                     let imgUrl = fetchedDataTopImages[i].contentUrl;
+                    //use image cdn to resize images
+                    imgUrl = imgUrl.replace("/im/", "/im:i:w_350/");
                     let title = fetchedDataTopImages[i].title;
                     let source = fetchedDataTopImages[i].source;
                     let topic = fetchedDataTopImages[i].topic;
@@ -72,7 +74,7 @@ async function getTopImages() {
 
     } catch (error) {
         console.error('Error:', error);
-     
+
     }
 
 }
@@ -109,6 +111,8 @@ async function getImages() {
 
             for (var i = 0; i < 8; i++) {
                 let imgUrl = fetchedData[i].contentUrl;
+                //use image cdn to resize images
+                imgUrl = imgUrl.replace("/im/", "/im:i:w_350/");
                 let title = fetchedData[i].title;
                 let source = fetchedData[i].source;
                 let topic = fetchedData[i].topic;
@@ -136,7 +140,7 @@ async function getImages() {
 
     } catch (error) {
         console.error('Error:', error);
-     
+
     }
 
 }
@@ -147,6 +151,8 @@ function loadMore() {
 
     for (var i = loaded; i < loaded + 8; i++) {
         let imgUrl = fetchedData[i].contentUrl;
+        //use image cdn to resize images
+        imgUrl = imgUrl.replace("/im/", "/im:i:w_350/");
         let title = fetchedData[i].title;
         let source = fetchedData[i].source;
         let topic = fetchedData[i].topic;
@@ -160,7 +166,7 @@ function loadMore() {
           <div class="topic" >${topic}</div>
       </div>`;
     }
-    console.log(i);
+  
     loaded = i;
 
 }
@@ -169,10 +175,10 @@ function loadMore() {
 
 function showPopup(e) {
 
-    //check whether img or video then render to specific format
 
 
-    console.log(e);
+
+    // console.log(e);
     // get position of clicked image relative to its parent
     selectedImage = Array.from(e.parentElement.children).indexOf(e);
     //check whether clicked element is in top images or more images, or from search results
@@ -217,6 +223,7 @@ function showPopup(e) {
 
 
     console.log(data);
+    //check whether img or video then render to specific format
     let contentTag;
 
     if (data.mediaType == "video") {
@@ -296,7 +303,7 @@ ${contentTag}
 
 function checkPopupClose(e) {
 
-    console.log(e);
+
     // closes popup when clicked outside of it
     if (!e.target.closest("#innerPopup") && !e.target.closest(".card")) {
         document.querySelector(".popup").style.display = "none";
@@ -311,7 +318,7 @@ function checkPopupClose(e) {
 
 async function submitRating(e) {
 
-    console.log(e);
+   
     //check whether rating comes from top, more or search popup
     let id;
     if (e.target.classList.contains("search")) {
@@ -329,7 +336,6 @@ async function submitRating(e) {
     const url = '/api/media/rating';
     let rating = document.getElementById("sliderRating").value;
 
-    console.log(rating);
 
     const data = {
         rating: rating,
@@ -366,7 +372,7 @@ async function submitRating(e) {
 
 function navigationPopup(e) {
 
-    console.log(e.id);
+   
     //check whether in top, more or search 
     let navigation;
     if (e.classList.contains("search")) {
