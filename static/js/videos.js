@@ -60,7 +60,10 @@ async function getTopVideos() {
                     let rating = fetchedDataTopVideos[i].rating;
 
                     document.querySelector("#topVideos .topContent").innerHTML += `<div class="card" onclick="showPopup(this)">
-                    <img class="videoCard" alt=""  src="${imgUrl}">
+                    <div class="mediaContainer top" onmouseenter="fetchVideoPreview2(this)" onmouseleave="stopPreviewVideo2(this)">
+                    <img class="videoCard" alt="" src="${imgUrl}">
+                <video class="videoCard" alt="" src="" style="display:none"></video>
+                </div>
                     <div class="title" >${title}</div>
                        <div class="source">${source}</div>
                        <div class="flexSpaceBetween">
@@ -128,7 +131,10 @@ async function getVideos() {
 
                 document.querySelector("#moreVideos .moreContent").innerHTML += `<div class="card" onclick="showPopup(this)">
               
-                <img class="videoCard" alt=""  src="${imgUrl}">
+                <div class="mediaContainer" onmouseenter="fetchVideoPreview2(this)" onmouseleave="stopPreviewVideo2(this)">
+                <img class="videoCard" alt="" src="${imgUrl}">
+            <video class="videoCard" alt="" src="" style="display:none"></video>
+            </div>
                 <div class="title" >${title}</div>
                    <div class="source">${source}</div>
                    <div class="flexSpaceBetween">
@@ -195,7 +201,10 @@ function loadMore() {
         }
 
         document.querySelector("#moreVideos .moreContent").innerHTML += `<div class="card" onclick="showPopup(this)" >
-        <img class="videoCard" alt=""  src="${imgUrl}">
+        <div class="mediaContainer" onmouseenter="fetchVideoPreview2(this)" onmouseleave="stopPreviewVideo2(this)">
+        <img class="videoCard" alt="" src="${imgUrl}">
+    <video class="videoCard" alt="" src="" style="display:none"></video>
+    </div>
         <div class="title" >${title}</div>
            <div class="source" >${source}</div>
            <div class="flexSpaceBetween">
@@ -457,7 +466,36 @@ function shuffleImages(e){
     }
     return e;
 }
+function fetchVideoPreview2(e) {
 
+
+    //get order of hovered video in array of search content
+    hoveredVideo = Array.from(e.parentElement.parentElement.children).indexOf(e.parentElement);
+
+    //check whether video is in top or more
+    let vid = e.classList.contains("top");
+
+    //select appropriate data array
+    let mediaArray;
+    if (vid == true) {
+        mediaArray = fetchedDataTopVideos
+    } else {
+        mediaArray = fetchedData
+    }
+
+    e.children[1].src = mediaArray[hoveredVideo].contentUrl;
+    e.children[1].style.display = "flex";
+    e.children[0].style.display = "none";
+
+    e.children[1].currentTime = 10;
+    e.children[1].muted = true
+    e.children[1].play();
+}
+
+function stopPreviewVideo2(e) {
+
+    e.children[1].pause();
+}
 //TEST
 
 function previewVideo(e){
